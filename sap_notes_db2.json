@@ -1,0 +1,78 @@
+[
+  {
+    "error": "TSV_TNEW_PAGE_ALLOC_FAILED",
+    "errorVariants": [
+      "TSV_TNEW_PAGE_ALLOC_FAILED",
+      "tsv_tnew_page_alloc_failed"
+    ],
+    "description": "Memory allocation failure in SAP",
+    "possibleCauses": [
+      "Extended memory exhausted",
+      "Heap memory limit reached",
+      "Large internal table processing"
+    ],
+    "basisRecommendation": [
+      "Check ST22 dump",
+      "Check ST02 memory utilization",
+      "Increase em/initial_size_MB",
+      "Restart application server if required"
+    ],
+    "transactionCodes": [
+      "ST22",
+      "ST02",
+      "SM50"
+    ],
+    "module": "BASIS",
+    "mailDraft": "Subject: Memory Dump - TSV_TNEW_PAGE_ALLOC_FAILED\n\nDear Team,\n\nA memory allocation dump has occurred in the system.\n\nActions taken:\n- Checked ST22\n- Reviewed memory usage\n\nPlease review the program handling large data.\n\nRegards,\nSAP BASIS Team"
+  },
+  {
+    "error": "SYSTEM_NO_ROLL",
+    "errorVariants": [
+      "SYSTEM_NO_ROLL",
+      "system_no_roll"
+    ],
+    "description": "Roll memory exhausted",
+    "possibleCauses": [
+      "Too many sessions",
+      "Large data selection",
+      "Memory limits reached"
+    ],
+    "basisRecommendation": [
+      "Check ST02 memory",
+      "Ask user to reduce data selection",
+      "Optimize ABAP program"
+    ],
+    "transactionCodes": [
+      "ST22",
+      "ST02",
+      "SM04"
+    ],
+    "module": "ABAP",
+    "mailDraft": "Subject: SYSTEM_NO_ROLL Dump Observed\n\nDear ABAP Team,\n\nSYSTEM_NO_ROLL dump occurred due to memory exhaustion.\n\nPlease check the program fetching large data.\n\nRegards,\nSAP BASIS Team"
+  },
+  {
+    "error": "DYNPRO_NOT_FOUND",
+    "errorVariants": [
+      "DYNPRO_NOT_FOUND",
+      "dynpro_not_found"
+    ],
+    "description": "Screen not found in program",
+    "possibleCauses": [
+      "Screen missing in transport",
+      "Program version mismatch",
+      "Inactive screen"
+    ],
+    "basisRecommendation": [
+      "Check ST22 dump",
+      "Verify screen in SE80",
+      "Re-transport object"
+    ],
+    "transactionCodes": [
+      "ST22",
+      "SE80",
+      "STMS"
+    ],
+    "module": "ABAP",
+    "mailDraft": "Subject: DYNPRO_NOT_FOUND Dump\n\nDear ABAP Team,\n\nA DYNPRO_NOT_FOUND dump occurred. Screen might be missing in transport.\n\nKindly verify and re-transport if required.\n\nRegards,\nSAP BASIS Team"
+  }
+]

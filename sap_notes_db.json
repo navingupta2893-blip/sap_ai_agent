@@ -1,0 +1,20 @@
+[
+{
+  "error": "TSV_TNEW_PAGE_ALLOC_FAILED",
+  "note": "7894561",
+  "cause": "Memory shortage",
+  "fix": "Increase memory parameters like em/initial_size_MB"
+},
+{
+  "error": "DBSQL_SQL_ERROR",
+  "note": "1234567",
+  "cause": "Database inconsistency",
+  "fix": "Check DB logs and apply SAP Note"
+},
+{
+  "error": "SYSTEM_NO_ROLL",
+  "note": "4567891",
+  "cause": "Roll memory exhausted",
+  "fix": "Increase roll area parameters"
+}
+]
