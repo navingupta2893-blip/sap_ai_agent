@@ -1,17 +1,7 @@
 import streamlit as st
 import json
-import win32com.client as win32
- 
-# ---------- Outlook Draft Function ----------
-def open_outlook_draft(subject, body, to_email):
-    outlook = win32.Dispatch("Outlook.Application")
-    mail = outlook.CreateItem(0)
- 
-    mail.To = to_email
-    mail.Subject = subject
-    mail.Body = body
- 
-    mail.Display()   # Opens Outlook draft popup (does NOT send)
+# import win32com.client as win32
+
  
  
 # ---------- Load JSON ----------
@@ -53,22 +43,11 @@ if user_input:
                 st.subheader("Mail Draft")
                 st.code(item["mailDraft"])
  
-                # ---------- Outlook Button ----------
-                if st.button("Open Mail Draft in Outlook"):
-                    subject = "SAP Alert: " + item["error"]
-                    body = item["mailDraft"]
- 
-                    # Team routing
-                    if item.get("module") == "ABAP":
-                        to_email = "abapteam@company.com"
-                    elif item.get("module") == "BASIS":
-                        to_email = "basisteam@company.com"
-                    else:
-                        to_email = "support@company.com"
- 
-                    open_outlook_draft(subject, body, to_email)
+       
+                
  
                 break
  
     if not found:
+
         st.error("No matching SAP error found")
